@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-project-heading" jhiTranslate="jhipsterSampleApplicationApp.project.home.createOrEditLabel">Create or edit a Project</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.projectCode" for="field_projectCode" [ngbTooltip]="'jhipsterSampleApplicationApp.project.help.projectCode' | translate">Project Code</label>
+                    <input type="text" class="form-control" name="projectCode" id="field_projectCode"
+                           formControlName="projectCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.projectName" for="field_projectName">Project Name</label>
+                    <input type="text" class="form-control" name="projectName" id="field_projectName"
+                           formControlName="projectName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.objective" for="field_objective">Objective</label>
+                    <input type="text" class="form-control" name="objective" id="field_objective"
+                           formControlName="objective"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.workPlan" for="field_workPlan">Work Plan</label>
+                    <input type="text" class="form-control" name="workPlan" id="field_workPlan"
+                           formControlName="workPlan"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.kra" for="field_kra">Kra</label>
+                    <input type="text" class="form-control" name="kra" id="field_kra"
+                           formControlName="kra"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.output" for="field_output">Output</label>
+                    <input type="text" class="form-control" name="output" id="field_output"
+                           formControlName="output"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.evaluation" for="field_evaluation">Evaluation</label>
+                    <input type="text" class="form-control" name="evaluation" id="field_evaluation"
+                           formControlName="evaluation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.budget" for="field_budget">Budget</label>
+                    <input type="number" class="form-control" name="budget" id="field_budget"
+                           formControlName="budget"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.headOffProject" for="field_headOffProject">Head Off Project</label>
+                    <input type="text" class="form-control" name="headOffProject" id="field_headOffProject"
+                           formControlName="headOffProject"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" formControlName="startDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.endDate" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker  #endDateDp="ngbDatepicker" formControlName="endDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.targetAudience" for="field_targetAudience">Target Audience</label>
+                    <input type="text" class="form-control" name="targetAudience" id="field_targetAudience"
+                           formControlName="targetAudience"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.project.overviewAboutProject" for="field_overviewAboutProject">Overview About Project</label>
+                    <input type="text" class="form-control" name="overviewAboutProject" id="field_overviewAboutProject"
+                           formControlName="overviewAboutProject"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

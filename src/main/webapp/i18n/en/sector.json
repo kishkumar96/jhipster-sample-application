@@ -1,0 +1,13 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "Sector": {
+      "null": "",
+      "CIVIL_SERVICE": "CIVIL_SERVICE",
+      "INTERNATIONAL_ORGANIZATION": "INTERNATIONAL_ORGANIZATION",
+      "NATIONAL_GOVERNMENT": "NATIONAL_GOVERNMENT",
+      "PRIVATE_SECTOR": "PRIVATE_SECTOR",
+      "REGIONAL_ORGANIZATION": "REGIONAL_ORGANIZATION",
+      "OTHERS": "OTHERS"
+    }
+  }
+}

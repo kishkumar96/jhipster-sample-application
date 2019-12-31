@@ -1,0 +1,10 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "Method": {
+      "null": "",
+      "TRAININGCL": "TRAININGCL",
+      "TRAINING": "TRAINING",
+      "WORKSHOP": "WORKSHOP"
+    }
+  }
+}

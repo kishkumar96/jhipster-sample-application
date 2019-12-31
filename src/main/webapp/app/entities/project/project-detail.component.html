@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="project">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.project.detail.title">Project</span> {{project.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.projectCode" [ngbTooltip]="'jhipsterSampleApplicationApp.project.help.projectCode' | translate">Project Code</span></dt>
+                <dd>
+                    <span>{{project.projectCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.projectName">Project Name</span></dt>
+                <dd>
+                    <span>{{project.projectName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.objective">Objective</span></dt>
+                <dd>
+                    <span>{{project.objective}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.workPlan">Work Plan</span></dt>
+                <dd>
+                    <span>{{project.workPlan}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.kra">Kra</span></dt>
+                <dd>
+                    <span>{{project.kra}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.output">Output</span></dt>
+                <dd>
+                    <span>{{project.output}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.evaluation">Evaluation</span></dt>
+                <dd>
+                    <span>{{project.evaluation}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.budget">Budget</span></dt>
+                <dd>
+                    <span>{{project.budget}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.headOffProject">Head Off Project</span></dt>
+                <dd>
+                    <span>{{project.headOffProject}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{project.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{project.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.targetAudience">Target Audience</span></dt>
+                <dd>
+                    <span>{{project.targetAudience}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.project.overviewAboutProject">Overview About Project</span></dt>
+                <dd>
+                    <span>{{project.overviewAboutProject}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/project', project.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

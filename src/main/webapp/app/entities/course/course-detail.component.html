@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="course">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.course.detail.title">Course</span> {{course.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.courseCode" [ngbTooltip]="'jhipsterSampleApplicationApp.course.help.courseCode' | translate">Course Code</span></dt>
+                <dd>
+                    <span>{{course.courseCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.courseTitle">Course Title</span></dt>
+                <dd>
+                    <span>{{course.courseTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.method">Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterSampleApplicationApp.Method.' + course.method}}">{{course.method}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.duration">Duration</span></dt>
+                <dd>
+                    <span>{{course.duration}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.period">Period</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterSampleApplicationApp.Period.' + course.period}}">{{course.period}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.description">Description</span></dt>
+                <dd>
+                    <span>{{course.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.comments">Comments</span></dt>
+                <dd>
+                    <span>{{course.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.course.projectCode">Project Code</span></dt>
+                <dd>
+                    <div *ngIf="course.projectCode">
+                        <a [routerLink]="['/project', course.projectCode?.id, 'view']">{{course.projectCode?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/course', course.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

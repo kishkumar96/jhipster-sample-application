@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.home.title">Participant Entries</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-participant-entry" [routerLink]="['/participant-entry/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.participantEntry.home.createLabel">
+            Create a new Participant Entry
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="participantEntries?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.home.notFound">No participantEntries found</span>
+    </div>
+    <div class="table-responsive" *ngIf="participantEntries?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.individualCode">Individual Code</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.firstName">First Name</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.lastName">Last Name</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.country">Country</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.gender">Gender</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.title">Title</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.dateOfBirth">Date Of Birth</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.organization">Organization</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.sector">Sector</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.position">Position</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.contactAddress">Contact Address</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.workPhone">Work Phone</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.faxNumber">Fax Number</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.homePhone">Home Phone</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.previousEmployment">Previous Employment</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.specialGeneral">Special General</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.specialDisasterManagement">Special Disaster Management</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.educationLevel">Education Level</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.trainer">Trainer</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.comments">Comments</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.participantEntry.sessionCode">Session Code</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let participantEntry of participantEntries ;trackBy: trackId">
+                <td><a [routerLink]="['/participant-entry', participantEntry.id, 'view' ]">{{participantEntry.id}}</a></td>
+                <td>{{participantEntry.individualCode}}</td>
+                <td>{{participantEntry.firstName}}</td>
+                <td>{{participantEntry.lastName}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Country.' + participantEntry.country}}">{{participantEntry.country}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Gender.' + participantEntry.gender}}">{{participantEntry.gender}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Title.' + participantEntry.title}}">{{participantEntry.title}}</td>
+                <td>{{participantEntry.dateOfBirth | date:'mediumDate'}}</td>
+                <td>{{participantEntry.organization}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Sector.' + participantEntry.sector}}">{{participantEntry.sector}}</td>
+                <td>{{participantEntry.position}}</td>
+                <td>{{participantEntry.contactAddress}}</td>
+                <td>{{participantEntry.workPhone}}</td>
+                <td>{{participantEntry.faxNumber}}</td>
+                <td>{{participantEntry.homePhone}}</td>
+                <td>{{participantEntry.email}}</td>
+                <td>{{participantEntry.previousEmployment}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Specialgeneral.' + participantEntry.specialGeneral}}">{{participantEntry.specialGeneral}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Specialdisastermanagement.' + participantEntry.specialDisasterManagement}}">{{participantEntry.specialDisasterManagement}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Educationlevel.' + participantEntry.educationLevel}}">{{participantEntry.educationLevel}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Trainer.' + participantEntry.trainer}}">{{participantEntry.trainer}}</td>
+                <td>{{participantEntry.comments}}</td>
+                <td>
+                    <span *ngFor="let sessionCode of participantEntry.sessionCodes; let last = last">
+                            <a class="form-control-static" [routerLink]="['/session', sessionCode?.id, 'view' ]">{{sessionCode.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/participant-entry', participantEntry.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/participant-entry', participantEntry.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(participantEntry)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

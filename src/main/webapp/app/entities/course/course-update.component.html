@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-course-heading" jhiTranslate="jhipsterSampleApplicationApp.course.home.createOrEditLabel">Create or edit a Course</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.courseCode" for="field_courseCode" [ngbTooltip]="'jhipsterSampleApplicationApp.course.help.courseCode' | translate">Course Code</label>
+                    <input type="text" class="form-control" name="courseCode" id="field_courseCode"
+                           formControlName="courseCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.courseTitle" for="field_courseTitle">Course Title</label>
+                    <input type="text" class="form-control" name="courseTitle" id="field_courseTitle"
+                           formControlName="courseTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.method" for="field_method">Method</label>
+                    <select class="form-control" name="method" formControlName="method" id="field_method">
+                        <option value="TRAININGCL">{{'jhipsterSampleApplicationApp.Method.TRAININGCL' | translate}}</option>
+                        <option value="TRAINING">{{'jhipsterSampleApplicationApp.Method.TRAINING' | translate}}</option>
+                        <option value="WORKSHOP">{{'jhipsterSampleApplicationApp.Method.WORKSHOP' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.duration" for="field_duration">Duration</label>
+                    <input type="number" class="form-control" name="duration" id="field_duration"
+                           formControlName="duration"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.period" for="field_period">Period</label>
+                    <select class="form-control" name="period" formControlName="period" id="field_period">
+                        <option value="HOURS">{{'jhipsterSampleApplicationApp.Period.HOURS' | translate}}</option>
+                        <option value="DAYS">{{'jhipsterSampleApplicationApp.Period.DAYS' | translate}}</option>
+                        <option value="WEEKS">{{'jhipsterSampleApplicationApp.Period.WEEKS' | translate}}</option>
+                        <option value="MONTHS">{{'jhipsterSampleApplicationApp.Period.MONTHS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.course.projectCode" for="field_projectCode">Project Code</label>
+                    <select class="form-control" id="field_projectCode" name="projectCode" formControlName="projectCode">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id === editForm.get('projectCode')!.value?.id ? editForm.get('projectCode')!.value : projectOption" *ngFor="let projectOption of projects; trackBy: trackById">{{projectOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

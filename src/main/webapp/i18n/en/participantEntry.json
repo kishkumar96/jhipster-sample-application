@@ -1,0 +1,46 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "participantEntry": {
+      "home": {
+        "title": "Participant Entries",
+        "createLabel": "Create a new Participant Entry",
+        "createOrEditLabel": "Create or edit a Participant Entry",
+        "notFound": "No Participant Entries found"
+      },
+      "created": "A new Participant Entry is created with identifier {{ param }}",
+      "updated": "A Participant Entry is updated with identifier {{ param }}",
+      "deleted": "A Participant Entry is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Participant Entry {{ id }}?"
+      },
+      "detail": {
+        "title": "Participant Entry"
+      },
+      "individualCode": "Individual Code",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "country": "Country",
+      "gender": "Gender",
+      "title": "Title",
+      "dateOfBirth": "Date Of Birth",
+      "organization": "Organization",
+      "sector": "Sector",
+      "position": "Position",
+      "contactAddress": "Contact Address",
+      "workPhone": "Work Phone",
+      "faxNumber": "Fax Number",
+      "homePhone": "Home Phone",
+      "email": "Email",
+      "previousEmployment": "Previous Employment",
+      "specialGeneral": "Special General",
+      "specialDisasterManagement": "Special Disaster Management",
+      "educationLevel": "Education Level",
+      "trainer": "Trainer",
+      "comments": "Comments",
+      "sessionCode": "Session Code",
+      "help": {
+        "individualCode": "fieldName"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "Educationlevel": {
+      "null": "",
+      "PRIMARY": "PRIMARY",
+      "SECONDARY": "SECONDARY",
+      "TERTIARY": "TERTIARY",
+      "VOCATIONAL": "VOCATIONAL"
+    }
+  }
+}
