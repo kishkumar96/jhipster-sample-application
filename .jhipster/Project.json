@@ -1,0 +1,77 @@
+{
+    "name": "Project",
+    "fields": [
+        {
+            "fieldName": "projectCode",
+            "javadoc": "fieldName",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "objective",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "workPlan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "kra",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "output",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "evaluation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "budget",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "headOffProject",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "targetAudience",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "overviewAboutProject",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "course",
+            "otherEntityRelationshipName": "projectCode",
+            "relationshipName": "course"
+        }
+    ],
+    "changelogDate": "20191231132010",
+    "javadoc": "The Enter the entity name entity.\\n@author A true hipster",
+    "entityTableName": "project",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

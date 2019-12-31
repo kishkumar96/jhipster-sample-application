@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.course.home.title">Courses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-course" [routerLink]="['/course/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.course.home.createLabel">
+            Create a new Course
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="courses?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.course.home.notFound">No courses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="courses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.courseCode">Course Code</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.courseTitle">Course Title</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.method">Method</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.duration">Duration</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.period">Period</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.description">Description</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.comments">Comments</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.course.projectCode">Project Code</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let course of courses ;trackBy: trackId">
+                <td><a [routerLink]="['/course', course.id, 'view' ]">{{course.id}}</a></td>
+                <td>{{course.courseCode}}</td>
+                <td>{{course.courseTitle}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Method.' + course.method}}">{{course.method}}</td>
+                <td>{{course.duration}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Period.' + course.period}}">{{course.period}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.comments}}</td>
+                <td>
+                    <div *ngIf="course.projectCode">
+                        <a [routerLink]="['/project', course.projectCode?.id, 'view' ]" >{{course.projectCode?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/course', course.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/course', course.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(course)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

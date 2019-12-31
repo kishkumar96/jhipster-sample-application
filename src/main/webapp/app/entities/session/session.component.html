@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.session.home.title">Sessions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-session" [routerLink]="['/session/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.session.home.createLabel">
+            Create a new Session
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sessions?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.session.home.notFound">No sessions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sessions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.sessionCode">Session Code</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.nameOfActivity">Name Of Activity</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.location">Location</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.startDate">Start Date</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.endDate">End Date</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.attendeesNumber">Attendees Number</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.sessionType">Session Type</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.description">Description</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.comment">Comment</span></th>
+            <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.session.courseCode">Course Code</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let session of sessions ;trackBy: trackId">
+                <td><a [routerLink]="['/session', session.id, 'view' ]">{{session.id}}</a></td>
+                <td>{{session.sessionCode}}</td>
+                <td>{{session.nameOfActivity}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.Country.' + session.location}}">{{session.location}}</td>
+                <td>{{session.startDate | date:'mediumDate'}}</td>
+                <td>{{session.endDate | date:'mediumDate'}}</td>
+                <td>{{session.attendeesNumber}}</td>
+                <td jhiTranslate="{{'jhipsterSampleApplicationApp.SessionType.' + session.sessionType}}">{{session.sessionType}}</td>
+                <td>{{session.description}}</td>
+                <td>{{session.comment}}</td>
+                <td>
+                    <div *ngIf="session.courseCode">
+                        <a [routerLink]="['/course', session.courseCode?.id, 'view' ]" >{{session.courseCode?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/session', session.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/session', session.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(session)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

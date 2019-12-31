@@ -1,0 +1,72 @@
+{
+    "name": "Session",
+    "fields": [
+        {
+            "fieldName": "sessionCode",
+            "javadoc": "fieldName",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "nameOfActivity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "Country",
+            "fieldValues": "ANTARTICA,AMERICAN_SAMOA,AUSTRALIA,BELGIUM,BRAZIL,CANADA,SWITZERLAND,COOK_ISLANDS,CHINA,CUBA,GERMANY,DENMARK,SPAIN,FIJI_ISLANDS,FEDERATED_STATES_OF_MICRONESIA,FRANCE,GUAM,GREECE,HONG_KONG,INDONESIA,IRELAND,ISRAEL,INDIA,ITALY,JAMAICA,JAPAN,KENYA,KIRIBATI,NORTH_KOREA,SOUTH_KOREA,MARSHALL_ISLANDS,NORTHERN_MARIANA_ISLANDS,MALTA,MAURITIUS,MALDIVES,MALAYSIA,NEW_CALEDONIA,NORFOLK_ISLANDS,NETHERLANDS,NORWAY,NAURU,NIUE,NEW_ZEALAND,FRENCH_POLYNESIA,PAPUA_NEWGUINEA,PHILIPPINES,PACIFIC_REGION,PUERTO_RICO,PALAU,ALL_SOPAC_MEMBER_COUNTRIES,RUSSIAN_FEDERATION,SOLOMON_ISLANDS,SEYCHELLES,SWEDEN,SINGAPORE,USSR,THAILAND,TOKELAU,TONGA,TRINIDAD_AND_TOBAGO,TUVALU,TAIWAN,UNITED_KINGDOM,UNITED_STATES_OF_AMERICA,VANUATU,WALLIS_AND_FUTUNA,WORLD,SAMOA,SOUTH_AFRICA"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "attendeesNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sessionType",
+            "fieldType": "SessionType",
+            "fieldValues": "IN_COUNTRY_TECHNICAL_ASSISTANCE,INTERNATIONAL_COURSE,NATIONAL_COURSE,NATIONAL_SEMINAR_OR_WORKSHOP,POST_GRAD_CERTIFICATE_PROGRAMS,REGIONAL_COURSE,REGIONAL_SEMINAR_OR_WORKSHOP,SUB_NATIONAL_COURSE"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "course",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "courseCode",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "participantEntry",
+            "otherEntityRelationshipName": "sessionCode",
+            "relationshipName": "individualCode",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191231132009",
+    "javadoc": "The Enter the entity name entity.\\n@author A true hipster",
+    "entityTableName": "session",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

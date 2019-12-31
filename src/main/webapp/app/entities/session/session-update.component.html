@@ -1,0 +1,161 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-session-heading" jhiTranslate="jhipsterSampleApplicationApp.session.home.createOrEditLabel">Create or edit a Session</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.sessionCode" for="field_sessionCode" [ngbTooltip]="'jhipsterSampleApplicationApp.session.help.sessionCode' | translate">Session Code</label>
+                    <input type="text" class="form-control" name="sessionCode" id="field_sessionCode"
+                           formControlName="sessionCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.nameOfActivity" for="field_nameOfActivity">Name Of Activity</label>
+                    <input type="text" class="form-control" name="nameOfActivity" id="field_nameOfActivity"
+                           formControlName="nameOfActivity"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.location" for="field_location">Location</label>
+                    <select class="form-control" name="location" formControlName="location" id="field_location">
+                        <option value="ANTARTICA">{{'jhipsterSampleApplicationApp.Country.ANTARTICA' | translate}}</option>
+                        <option value="AMERICAN_SAMOA">{{'jhipsterSampleApplicationApp.Country.AMERICAN_SAMOA' | translate}}</option>
+                        <option value="AUSTRALIA">{{'jhipsterSampleApplicationApp.Country.AUSTRALIA' | translate}}</option>
+                        <option value="BELGIUM">{{'jhipsterSampleApplicationApp.Country.BELGIUM' | translate}}</option>
+                        <option value="BRAZIL">{{'jhipsterSampleApplicationApp.Country.BRAZIL' | translate}}</option>
+                        <option value="CANADA">{{'jhipsterSampleApplicationApp.Country.CANADA' | translate}}</option>
+                        <option value="SWITZERLAND">{{'jhipsterSampleApplicationApp.Country.SWITZERLAND' | translate}}</option>
+                        <option value="COOK_ISLANDS">{{'jhipsterSampleApplicationApp.Country.COOK_ISLANDS' | translate}}</option>
+                        <option value="CHINA">{{'jhipsterSampleApplicationApp.Country.CHINA' | translate}}</option>
+                        <option value="CUBA">{{'jhipsterSampleApplicationApp.Country.CUBA' | translate}}</option>
+                        <option value="GERMANY">{{'jhipsterSampleApplicationApp.Country.GERMANY' | translate}}</option>
+                        <option value="DENMARK">{{'jhipsterSampleApplicationApp.Country.DENMARK' | translate}}</option>
+                        <option value="SPAIN">{{'jhipsterSampleApplicationApp.Country.SPAIN' | translate}}</option>
+                        <option value="FIJI_ISLANDS">{{'jhipsterSampleApplicationApp.Country.FIJI_ISLANDS' | translate}}</option>
+                        <option value="FEDERATED_STATES_OF_MICRONESIA">{{'jhipsterSampleApplicationApp.Country.FEDERATED_STATES_OF_MICRONESIA' | translate}}</option>
+                        <option value="FRANCE">{{'jhipsterSampleApplicationApp.Country.FRANCE' | translate}}</option>
+                        <option value="GUAM">{{'jhipsterSampleApplicationApp.Country.GUAM' | translate}}</option>
+                        <option value="GREECE">{{'jhipsterSampleApplicationApp.Country.GREECE' | translate}}</option>
+                        <option value="HONG_KONG">{{'jhipsterSampleApplicationApp.Country.HONG_KONG' | translate}}</option>
+                        <option value="INDONESIA">{{'jhipsterSampleApplicationApp.Country.INDONESIA' | translate}}</option>
+                        <option value="IRELAND">{{'jhipsterSampleApplicationApp.Country.IRELAND' | translate}}</option>
+                        <option value="ISRAEL">{{'jhipsterSampleApplicationApp.Country.ISRAEL' | translate}}</option>
+                        <option value="INDIA">{{'jhipsterSampleApplicationApp.Country.INDIA' | translate}}</option>
+                        <option value="ITALY">{{'jhipsterSampleApplicationApp.Country.ITALY' | translate}}</option>
+                        <option value="JAMAICA">{{'jhipsterSampleApplicationApp.Country.JAMAICA' | translate}}</option>
+                        <option value="JAPAN">{{'jhipsterSampleApplicationApp.Country.JAPAN' | translate}}</option>
+                        <option value="KENYA">{{'jhipsterSampleApplicationApp.Country.KENYA' | translate}}</option>
+                        <option value="KIRIBATI">{{'jhipsterSampleApplicationApp.Country.KIRIBATI' | translate}}</option>
+                        <option value="NORTH_KOREA">{{'jhipsterSampleApplicationApp.Country.NORTH_KOREA' | translate}}</option>
+                        <option value="SOUTH_KOREA">{{'jhipsterSampleApplicationApp.Country.SOUTH_KOREA' | translate}}</option>
+                        <option value="MARSHALL_ISLANDS">{{'jhipsterSampleApplicationApp.Country.MARSHALL_ISLANDS' | translate}}</option>
+                        <option value="NORTHERN_MARIANA_ISLANDS">{{'jhipsterSampleApplicationApp.Country.NORTHERN_MARIANA_ISLANDS' | translate}}</option>
+                        <option value="MALTA">{{'jhipsterSampleApplicationApp.Country.MALTA' | translate}}</option>
+                        <option value="MAURITIUS">{{'jhipsterSampleApplicationApp.Country.MAURITIUS' | translate}}</option>
+                        <option value="MALDIVES">{{'jhipsterSampleApplicationApp.Country.MALDIVES' | translate}}</option>
+                        <option value="MALAYSIA">{{'jhipsterSampleApplicationApp.Country.MALAYSIA' | translate}}</option>
+                        <option value="NEW_CALEDONIA">{{'jhipsterSampleApplicationApp.Country.NEW_CALEDONIA' | translate}}</option>
+                        <option value="NORFOLK_ISLANDS">{{'jhipsterSampleApplicationApp.Country.NORFOLK_ISLANDS' | translate}}</option>
+                        <option value="NETHERLANDS">{{'jhipsterSampleApplicationApp.Country.NETHERLANDS' | translate}}</option>
+                        <option value="NORWAY">{{'jhipsterSampleApplicationApp.Country.NORWAY' | translate}}</option>
+                        <option value="NAURU">{{'jhipsterSampleApplicationApp.Country.NAURU' | translate}}</option>
+                        <option value="NIUE">{{'jhipsterSampleApplicationApp.Country.NIUE' | translate}}</option>
+                        <option value="NEW_ZEALAND">{{'jhipsterSampleApplicationApp.Country.NEW_ZEALAND' | translate}}</option>
+                        <option value="FRENCH_POLYNESIA">{{'jhipsterSampleApplicationApp.Country.FRENCH_POLYNESIA' | translate}}</option>
+                        <option value="PAPUA_NEWGUINEA">{{'jhipsterSampleApplicationApp.Country.PAPUA_NEWGUINEA' | translate}}</option>
+                        <option value="PHILIPPINES">{{'jhipsterSampleApplicationApp.Country.PHILIPPINES' | translate}}</option>
+                        <option value="PACIFIC_REGION">{{'jhipsterSampleApplicationApp.Country.PACIFIC_REGION' | translate}}</option>
+                        <option value="PUERTO_RICO">{{'jhipsterSampleApplicationApp.Country.PUERTO_RICO' | translate}}</option>
+                        <option value="PALAU">{{'jhipsterSampleApplicationApp.Country.PALAU' | translate}}</option>
+                        <option value="ALL_SOPAC_MEMBER_COUNTRIES">{{'jhipsterSampleApplicationApp.Country.ALL_SOPAC_MEMBER_COUNTRIES' | translate}}</option>
+                        <option value="RUSSIAN_FEDERATION">{{'jhipsterSampleApplicationApp.Country.RUSSIAN_FEDERATION' | translate}}</option>
+                        <option value="SOLOMON_ISLANDS">{{'jhipsterSampleApplicationApp.Country.SOLOMON_ISLANDS' | translate}}</option>
+                        <option value="SEYCHELLES">{{'jhipsterSampleApplicationApp.Country.SEYCHELLES' | translate}}</option>
+                        <option value="SWEDEN">{{'jhipsterSampleApplicationApp.Country.SWEDEN' | translate}}</option>
+                        <option value="SINGAPORE">{{'jhipsterSampleApplicationApp.Country.SINGAPORE' | translate}}</option>
+                        <option value="USSR">{{'jhipsterSampleApplicationApp.Country.USSR' | translate}}</option>
+                        <option value="THAILAND">{{'jhipsterSampleApplicationApp.Country.THAILAND' | translate}}</option>
+                        <option value="TOKELAU">{{'jhipsterSampleApplicationApp.Country.TOKELAU' | translate}}</option>
+                        <option value="TONGA">{{'jhipsterSampleApplicationApp.Country.TONGA' | translate}}</option>
+                        <option value="TRINIDAD_AND_TOBAGO">{{'jhipsterSampleApplicationApp.Country.TRINIDAD_AND_TOBAGO' | translate}}</option>
+                        <option value="TUVALU">{{'jhipsterSampleApplicationApp.Country.TUVALU' | translate}}</option>
+                        <option value="TAIWAN">{{'jhipsterSampleApplicationApp.Country.TAIWAN' | translate}}</option>
+                        <option value="UNITED_KINGDOM">{{'jhipsterSampleApplicationApp.Country.UNITED_KINGDOM' | translate}}</option>
+                        <option value="UNITED_STATES_OF_AMERICA">{{'jhipsterSampleApplicationApp.Country.UNITED_STATES_OF_AMERICA' | translate}}</option>
+                        <option value="VANUATU">{{'jhipsterSampleApplicationApp.Country.VANUATU' | translate}}</option>
+                        <option value="WALLIS_AND_FUTUNA">{{'jhipsterSampleApplicationApp.Country.WALLIS_AND_FUTUNA' | translate}}</option>
+                        <option value="WORLD">{{'jhipsterSampleApplicationApp.Country.WORLD' | translate}}</option>
+                        <option value="SAMOA">{{'jhipsterSampleApplicationApp.Country.SAMOA' | translate}}</option>
+                        <option value="SOUTH_AFRICA">{{'jhipsterSampleApplicationApp.Country.SOUTH_AFRICA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" formControlName="startDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.endDate" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker  #endDateDp="ngbDatepicker" formControlName="endDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.attendeesNumber" for="field_attendeesNumber">Attendees Number</label>
+                    <input type="number" class="form-control" name="attendeesNumber" id="field_attendeesNumber"
+                           formControlName="attendeesNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.sessionType" for="field_sessionType">Session Type</label>
+                    <select class="form-control" name="sessionType" formControlName="sessionType" id="field_sessionType">
+                        <option value="IN_COUNTRY_TECHNICAL_ASSISTANCE">{{'jhipsterSampleApplicationApp.SessionType.IN_COUNTRY_TECHNICAL_ASSISTANCE' | translate}}</option>
+                        <option value="INTERNATIONAL_COURSE">{{'jhipsterSampleApplicationApp.SessionType.INTERNATIONAL_COURSE' | translate}}</option>
+                        <option value="NATIONAL_COURSE">{{'jhipsterSampleApplicationApp.SessionType.NATIONAL_COURSE' | translate}}</option>
+                        <option value="NATIONAL_SEMINAR_OR_WORKSHOP">{{'jhipsterSampleApplicationApp.SessionType.NATIONAL_SEMINAR_OR_WORKSHOP' | translate}}</option>
+                        <option value="POST_GRAD_CERTIFICATE_PROGRAMS">{{'jhipsterSampleApplicationApp.SessionType.POST_GRAD_CERTIFICATE_PROGRAMS' | translate}}</option>
+                        <option value="REGIONAL_COURSE">{{'jhipsterSampleApplicationApp.SessionType.REGIONAL_COURSE' | translate}}</option>
+                        <option value="REGIONAL_SEMINAR_OR_WORKSHOP">{{'jhipsterSampleApplicationApp.SessionType.REGIONAL_SEMINAR_OR_WORKSHOP' | translate}}</option>
+                        <option value="SUB_NATIONAL_COURSE">{{'jhipsterSampleApplicationApp.SessionType.SUB_NATIONAL_COURSE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.comment" for="field_comment">Comment</label>
+                    <input type="text" class="form-control" name="comment" id="field_comment"
+                           formControlName="comment"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.session.courseCode" for="field_courseCode">Course Code</label>
+                    <select class="form-control" id="field_courseCode" name="courseCode" formControlName="courseCode">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="courseOption.id === editForm.get('courseCode')!.value?.id ? editForm.get('courseCode')!.value : courseOption" *ngFor="let courseOption of courses; trackBy: trackById">{{courseOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

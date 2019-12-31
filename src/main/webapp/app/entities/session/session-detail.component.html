@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="session">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.session.detail.title">Session</span> {{session.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.sessionCode" [ngbTooltip]="'jhipsterSampleApplicationApp.session.help.sessionCode' | translate">Session Code</span></dt>
+                <dd>
+                    <span>{{session.sessionCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.nameOfActivity">Name Of Activity</span></dt>
+                <dd>
+                    <span>{{session.nameOfActivity}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.location">Location</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterSampleApplicationApp.Country.' + session.location}}">{{session.location}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{session.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{session.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.attendeesNumber">Attendees Number</span></dt>
+                <dd>
+                    <span>{{session.attendeesNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.sessionType">Session Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterSampleApplicationApp.SessionType.' + session.sessionType}}">{{session.sessionType}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.description">Description</span></dt>
+                <dd>
+                    <span>{{session.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.comment">Comment</span></dt>
+                <dd>
+                    <span>{{session.comment}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.session.courseCode">Course Code</span></dt>
+                <dd>
+                    <div *ngIf="session.courseCode">
+                        <a [routerLink]="['/course', session.courseCode?.id, 'view']">{{session.courseCode?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/session', session.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

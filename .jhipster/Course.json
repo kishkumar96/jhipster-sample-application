@@ -1,0 +1,62 @@
+{
+    "name": "Course",
+    "fields": [
+        {
+            "fieldName": "courseCode",
+            "javadoc": "fieldName",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "courseTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "method",
+            "fieldType": "Method",
+            "fieldValues": "TRAININGCL,TRAINING,WORKSHOP"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "period",
+            "fieldType": "Period",
+            "fieldValues": "HOURS,DAYS,WEEKS,MONTHS"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comments",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "courseCode",
+            "relationshipName": "session"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "course",
+            "relationshipName": "projectCode",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191231132012",
+    "javadoc": "The Entity entity.\\n@author A true hipster",
+    "entityTableName": "course",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
